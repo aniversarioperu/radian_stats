@@ -16,10 +16,10 @@
 
 
 
-<h3>Example 15 (data binding)</h3>
+<h3>Se espera probabilidad al 50% de obtener cara o sello</h3>
 
 <div class="form-inline">
-  <label>N_trials</label>
+  <label>Cuántas veces hay que tirar la moneda?</label>
   <select ng-model="n_trials" ng-init="n_trials='4'">
       <option value="0">0</option>
       <option value="1">1</option>
@@ -35,13 +35,17 @@
 </div>
 <br>
 
+<plot width=600 height=300 aspect=3 stroke-width=2 stroke="red">
+  <lines label="my_data" x="[[x_data.x]]" y="[[y_data.y]]"  />
+</plot>
+
 <plot-data name="y_data" src="y_{{n_trials}}.csv" format="csv">
     <metadata name="distri"></metadata>
 </plot-data>
 
-<plot height=300 aspect=3 stroke-width=2 stroke="red">
-  <lines x="[[seq(0,1,100)]]" y="[[y_data.y]]"/>
-</plot>
+<plot-data name="x_data" src="x_data.csv" format="csv">
+    <metadata name="x" label="Probabilidad de obtener cara o sello"></metadata>
+</plot-data>
 
 
       </div>
@@ -56,6 +60,5 @@
   <script src="lib/angular/angular.js"></script>
   <script src="js/app.js"></script>
   <script src="js/radian.js"></script>
-  <script src="js/jstat.js"></script>
 </body>
 </html>
