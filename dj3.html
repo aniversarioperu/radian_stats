@@ -64,8 +64,9 @@ var y = d3.scale.linear()
 
 var chart = d3.select('body')
     .append('svg:svg')
-    .attr('width', width + margin.right + margin.left)
-    .attr('height', height + margin.top + margin.bottom)
+    //.attr('width', width + margin.right + margin.left)
+    //.attr('height', height + margin.top + margin.bottom)
+    .attr('viewBox', '0 0 ' + width + ' ' + height)
     .attr('class', 'chart');
 
 var main = chart.append('g')
